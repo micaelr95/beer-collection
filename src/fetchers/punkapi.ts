@@ -14,3 +14,12 @@ export const getPaginated = async (page = 1, perPage = 16) => {
     console.error(err);
   }
 };
+
+export const getBeer = async (id: number) => {
+  try {
+    const res = await instance.get<Beer[]>(`beers/${id}`);
+    return res.data;
+  } catch (err) {
+    console.error(err);
+  }
+};
