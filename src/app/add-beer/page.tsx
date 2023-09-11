@@ -78,7 +78,7 @@ const AddBeer = () => {
             <input
               className="bg-neutral-800/30 border p-2 rounded"
               id="firstBrewed"
-              type="date"
+              type="month"
               name="firstBrewed"
               onChange={handleChange}
               required
@@ -102,7 +102,7 @@ const AddBeer = () => {
             <input
               className="bg-neutral-800/30 border p-2 rounded"
               id="image_url"
-              type="text"
+              type="url"
               name="image_url"
               required
               onChange={handleChange}
