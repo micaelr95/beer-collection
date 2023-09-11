@@ -1,4 +1,5 @@
 import ListItem from '@/components/ListItem';
+import type { Beers } from '@/types/beer';
 
 interface ListProps {
   beers: Beers;

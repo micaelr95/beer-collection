@@ -1,3 +1,5 @@
+import type { Beers } from '@/types/beer';
+
 // Data taken from https://api.punkapi.com/v2/beers?page=1&per_page=16
 export const initialData: Beers = [
   {
@@ -101,7 +103,7 @@ export const initialData: Beers = [
     rating: 7.3,
   },
   {
-    id: '69e08e1b0de',
+    id: '69eg5e1b0da',
     name: 'Arcade Nation',
     tagline: 'Seasonal Black IPA.',
     firstBrewed: '12/2015',

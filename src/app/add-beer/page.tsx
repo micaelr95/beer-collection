@@ -4,8 +4,10 @@ import { ChangeEvent, FormEvent, useState } from 'react';
 import { useRouter } from 'next/navigation';
 
 import Container from '@/components/Container';
-import { addBeer } from '@/redux/beerSlice';
+import { add } from '@/redux/beerSlice';
 import { useAppDispatch } from '@/redux/hooks';
+import Button from '@/components/Button';
+import type { FormBeer } from '@/types/beer';
 
 const AddBeer = () => {
   const dispatch = useAppDispatch();
@@ -30,7 +32,7 @@ const AddBeer = () => {
 
   const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    dispatch(addBeer(values));
+    dispatch(add(values));
     router.push('/');
   };
 
@@ -108,12 +110,7 @@ const AddBeer = () => {
           </Container>
         </div>
         <div className="flex justify-end">
-          <button
-            className="bg-blue-700 hover:bg-blue-500 px-5 py-2 rounded"
-            type="submit"
-          >
-            Submit
-          </button>
+          <Button type="submit">Submit</Button>
         </div>
       </form>
     </div>

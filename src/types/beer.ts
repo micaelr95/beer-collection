@@ -1,4 +1,4 @@
-interface Beer {
+export interface Beer {
   id: string;
   name: string;
   tagline: string;
@@ -8,6 +8,6 @@ interface Beer {
   rating: number;
 }
 
-type Beers = Beer[];
+export type Beers = Beer[];
 
-type FormBeer = Omit<Beer, 'id'>;
+export type FormBeer = Omit<Beer, 'id'>;
