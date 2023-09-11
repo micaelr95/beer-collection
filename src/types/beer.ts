@@ -18,7 +18,7 @@ interface Beer {
   method: {
     mash_temp: { temp: { value: number; unit: string }; duration: number }[];
     fermentation: { temp: { value: number; unit: string } };
-    twist: null;
+    twist: string | null;
   };
   ingredients: {
     malt: {
@@ -37,3 +37,5 @@ interface Beer {
   brewers_tips: string;
   contributed_by: string;
 }
+
+type Beers = Beer[];

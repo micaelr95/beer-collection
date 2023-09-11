@@ -1,22 +1,14 @@
-import { getPaginated } from '@/fetchers/punkapi';
-import ListItem from '@/components/ListItem';
+'use client';
 
-const ListingPage = async () => {
-  const data = await getPaginated();
+import List from '@/components/List';
+import { useAppSelector } from '@/redux/hooks';
+
+const ListingPage = () => {
+  const beers = useAppSelector((state) => state.beers);
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
-        {data?.map(({ id, name, tagline, image_url }) => (
-          <ListItem
-            key={id}
-            id={id}
-            image_url={image_url}
-            name={name}
-            tagline={tagline}
-          />
-        ))}
-      </div>
+      <List beers={beers} />
     </div>
   );
 };

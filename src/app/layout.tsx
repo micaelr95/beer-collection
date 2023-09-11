@@ -2,6 +2,7 @@ import './globals.css';
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Link from 'next/link';
+import ReduxProvider from '@/redux/provider';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -24,7 +25,9 @@ export default function RootLayout({
             <Link href="/add-beer">Add beer</Link>
           </div>
         </header>
-        <div className="container mx-auto mt-28">{children}</div>
+        <div className="container mx-auto mt-28">
+          <ReduxProvider>{children}</ReduxProvider>
+        </div>
       </body>
     </html>
   );

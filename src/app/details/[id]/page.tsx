@@ -1,26 +1,28 @@
-import Image from 'next/image';
+'use client';
 
-import { getBeer } from '@/fetchers/punkapi';
+import { useAppSelector } from '@/redux/hooks';
+import Image from 'next/image';
 
 interface DetailsProps {
   params: {
-    id: number;
+    id: string;
   };
 }
 
-const Details = async ({ params: { id } }: DetailsProps) => {
-  const beer = await getBeer(id);
+const Details = ({ params: { id } }: DetailsProps) => {
+  const beer = useAppSelector((state) =>
+    state.beers.find((beer) => beer.id.toString() === id)
+  );
 
   if (!beer) {
-    // TODO
     return (
-      <div className="w-screen h-screen flex items-center justify-center">
+      <div className="h-screen flex items-center justify-center">
         No beers found with this id 🍻
       </div>
     );
   }
 
-  const { name, description, image_url, first_brewed, food_pairing } = beer[0];
+  const { name, description, image_url, first_brewed, food_pairing } = beer;
 
   return (
     <div className="grid gap-10 lg:grid-cols-3">
