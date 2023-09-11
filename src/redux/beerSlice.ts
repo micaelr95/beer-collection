@@ -3,6 +3,7 @@
 import { initialData } from '@/consts/initialData';
 
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
+import { uid } from 'uid';
 
 interface BeerState {
   beers: Beer[];
@@ -16,8 +17,8 @@ export const beerSlice = createSlice({
   name: 'beer',
   initialState,
   reducers: {
-    addBeer: (state, action: PayloadAction<Beer>) => {
-      state.beers.push(action.payload);
+    addBeer: (state, action: PayloadAction<FormBeer>) => {
+      state.beers.push({ ...action.payload, id: uid() });
     },
   },
 });

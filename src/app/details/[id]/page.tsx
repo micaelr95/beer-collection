@@ -22,7 +22,7 @@ const Details = ({ params: { id } }: DetailsProps) => {
     );
   }
 
-  const { name, description, image_url, first_brewed, food_pairing } = beer;
+  const { name, description, image_url, firstBrewed, rating } = beer;
 
   return (
     <div className="grid gap-10 lg:grid-cols-3">
@@ -40,12 +40,12 @@ const Details = ({ params: { id } }: DetailsProps) => {
         <p className="text-justify">{description}</p>
         <p className="flex gap-2">
           <span className="font-bold">First brewed:</span>
-          {first_brewed}
+          {firstBrewed}
         </p>
 
         <p className="flex gap-2">
-          <span className="font-bold">Better with: </span>
-          {food_pairing.toString()}
+          <span className="font-bold">Rating: </span>
+          {rating}
         </p>
       </div>
     </div>
