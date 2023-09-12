@@ -1,34 +1,27 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
 ## Getting Started
 
-First, run the development server:
+To run the app, we start the development server by running:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Architecture
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+All the code lives inside the `src` folder.
 
-## Learn More
+For this project I used the new `app` directory. Inside the `app` directory we have the home page in the root then `add-beer` and `details`. All these pages are responsible for handling data for that page.
 
-To learn more about Next.js, take a look at the following resources:
+When we open the page for the first time the beers are fetched from the API, saved in redux and to the local storage. If redux/local storage has data we don't go to the API.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+In the `components` folder we have all the common components. Those components are only responsible for rendering data that comes from the parent/page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+`fetchers` contains the code responsible to get data from the API.
 
-## Deploy on Vercel
+Everything related to redux is inside the `redux` folder. This includes the slice, hooks, the provider and the store.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All common types live inside type `types` folder.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+I also added tests that live inside the `__tests__` folder.
