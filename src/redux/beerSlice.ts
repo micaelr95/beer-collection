@@ -24,7 +24,9 @@ export const beerSlice = createSlice({
       state.beers.push({ ...action.payload, id: uid() });
     },
     remove: (state, action: PayloadAction<Pick<Beer, 'id'>>) => {
-      state.beers = state.beers.filter(({ id }) => id !== action.payload.id);
+      state.beers = state.beers.filter(
+        ({ id }) => id.toString() !== action.payload.id
+      );
     },
   },
 });
