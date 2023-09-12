@@ -18,7 +18,6 @@ const AddBeer = () => {
     description: '',
     firstBrewed: '',
     image_url: '',
-    rating: 0,
   });
 
   const handleChange = (
@@ -80,19 +79,6 @@ const AddBeer = () => {
               id="firstBrewed"
               type="month"
               name="firstBrewed"
-              onChange={handleChange}
-              required
-            />
-          </Container>
-          <Container>
-            <label htmlFor="rating">Rating:</label>
-            <input
-              className="bg-neutral-800/30 border p-2 rounded"
-              id="rating"
-              type="number"
-              min={0}
-              max={10}
-              name="rating"
               onChange={handleChange}
               required
             />

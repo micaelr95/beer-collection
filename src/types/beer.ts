@@ -5,7 +5,6 @@ export interface Beer {
   firstBrewed: string;
   description: string;
   image_url: string;
-  rating: number;
 }
 
 export type Beers = Beer[];

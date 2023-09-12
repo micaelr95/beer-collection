@@ -17,7 +17,7 @@ const Details = ({ params: { id } }: DetailsProps) => {
   const dispatch = useAppDispatch();
   const router = useRouter();
   const beer = useAppSelector((state) =>
-    state.beers.find(({ id: beerId }) => beerId === id)
+    state.beers.find(({ id: beerId }) => beerId.toString() === id)
   );
 
   if (!beer) {
@@ -28,7 +28,7 @@ const Details = ({ params: { id } }: DetailsProps) => {
     );
   }
 
-  const { name, description, image_url, firstBrewed, rating } = beer;
+  const { name, description, image_url, firstBrewed } = beer;
 
   const handleClick = () => {
     dispatch(remove({ id }));
@@ -51,11 +51,6 @@ const Details = ({ params: { id } }: DetailsProps) => {
         <p className="flex gap-2">
           <span className="font-bold">First brewed:</span>
           {firstBrewed}
-        </p>
-
-        <p className="flex gap-2">
-          <span className="font-bold">Rating: </span>
-          {rating}
         </p>
         <div className="flex justify-end">
           <Button handleClick={handleClick}>Remove</Button>
