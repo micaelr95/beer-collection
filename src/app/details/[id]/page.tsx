@@ -28,7 +28,7 @@ const Details = ({ params: { id } }: DetailsProps) => {
     );
   }
 
-  const { name, description, image_url, firstBrewed } = beer;
+  const { name, description, image_url, first_brewed } = beer;
 
   const handleClick = () => {
     dispatch(remove({ id }));
@@ -50,7 +50,7 @@ const Details = ({ params: { id } }: DetailsProps) => {
         <p className="text-justify">{description}</p>
         <p className="flex gap-2">
           <span className="font-bold">First brewed:</span>
-          {firstBrewed}
+          {first_brewed}
         </p>
         <div className="flex justify-end">
           <Button handleClick={handleClick}>Remove</Button>

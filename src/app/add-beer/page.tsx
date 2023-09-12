@@ -8,6 +8,7 @@ import { add } from '@/redux/beerSlice';
 import { useAppDispatch } from '@/redux/hooks';
 import Button from '@/components/Button';
 import type { FormBeer } from '@/types/beer';
+import Input from '@/components/Input';
 
 const AddBeer = () => {
   const dispatch = useAppDispatch();
@@ -16,7 +17,7 @@ const AddBeer = () => {
     name: '',
     tagline: '',
     description: '',
-    firstBrewed: '',
+    first_brewed: '',
     image_url: '',
   });
 
@@ -40,28 +41,8 @@ const AddBeer = () => {
       <h1 className="text-2xl font-bold">Add new beer</h1>
       <form className="flex flex-col gap-7 w-full" onSubmit={handleSubmit}>
         <div className="flex flex-col gap-3">
-          <Container>
-            <label htmlFor="name">Name:</label>
-            <input
-              className="bg-neutral-800/30 border p-2 rounded"
-              type="text"
-              id="name"
-              name="name"
-              onChange={handleChange}
-              required
-            />
-          </Container>
-          <Container>
-            <label htmlFor="tagline">Tagline:</label>
-            <input
-              className="bg-neutral-800/30 border p-2 rounded"
-              id="tagline"
-              type="text"
-              name="tagline"
-              onChange={handleChange}
-              required
-            />
-          </Container>
+          <Input id="name" label="Name:" handleChange={handleChange} />
+          <Input id="tagline" label="Tagline:" handleChange={handleChange} />
           <Container>
             <label htmlFor="description">Description:</label>
             <textarea
@@ -72,28 +53,18 @@ const AddBeer = () => {
               required
             />
           </Container>
-          <Container>
-            <label htmlFor="firstBrewed">First brewed:</label>
-            <input
-              className="bg-neutral-800/30 border p-2 rounded"
-              id="firstBrewed"
-              type="month"
-              name="firstBrewed"
-              onChange={handleChange}
-              required
-            />
-          </Container>
-          <Container>
-            <label htmlFor="image_url">Image URL:</label>
-            <input
-              className="bg-neutral-800/30 border p-2 rounded"
-              id="image_url"
-              type="url"
-              name="image_url"
-              required
-              onChange={handleChange}
-            />
-          </Container>
+          <Input
+            id="first_brewed"
+            label="First brewed:"
+            type="month"
+            handleChange={handleChange}
+          />
+          <Input
+            id="image_url"
+            label="Image URL:"
+            type="url"
+            handleChange={handleChange}
+          />
         </div>
         <div className="flex justify-end">
           <Button type="submit">Submit</Button>

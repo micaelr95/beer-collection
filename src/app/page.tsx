@@ -24,10 +24,10 @@ const ListingPage = () => {
     }
   }, []);
 
-  if (!beers) {
+  if (!beers.length) {
     return (
       <div className="h-screen flex items-center justify-center">
-        No beers found 🍻
+        Loading beers 🍻
       </div>
     );
   }
